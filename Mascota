@@ -12,45 +12,71 @@ private:
 public:
     Mascota(string _nombre) {
         nombre = _nombre;
-        energia = 100;  
-        hambre = 50;    
-        felicidad = 80; 
+        energia = 10;  
+        hambre = 8;    
+        felicidad = 9; 
     }
 
     void comer() {
-        cout << nombre << " está comiendo..." << endl;
-        hambre -= 20;
-        energia += 10;
-        if (hambre < 0) hambre = 0;
-        if (energia > 100) energia = 100;
+        cout << nombre << " Esta comiendo..." << endl;
+        hambre += 2;
+        energia += 1;
+        if (hambre > 10) hambre = 10;
+        if (energia > 10) energia = 10;
     }
 
     void jugar() {
-        cout << nombre << " está jugando..." << endl;
-        felicidad += 15;
-        energia -= 10;
-        if (felicidad > 100) felicidad = 100;
+        cout << nombre << " Esta jugando..." << endl;
+        felicidad += 2;
+        energia -= 1;
+        hambre -= 2;
+        if (felicidad > 10) felicidad = 10;
         if (energia < 0) energia = 0;
+        if (hambre < 0) hambre = 0;
     }
 
     void dormir() {
-        cout << nombre << " está durmiendo..." << endl;
-        energia += 30;
-        if (energia > 100) energia = 100;
+        cout << nombre << " Esta durmiendo..." << endl;
+        energia += 3;
+        hambre -= 1;
+        if (energia > 10) energia = 10;
+        if (hambre < 0) hambre = 0;
     }
 
     void mostrar_estado() const {
         cout << "--- Estado de " << nombre << " ---" << endl;
-        cout << "Energia: " << energia << "/100" << endl;
-        cout << "Hambre: " << hambre << "/100" << endl;
-        cout << "Felicidad: " << felicidad << "/100" << endl;
+        cout << "Energia: " << energia << "/10" << endl;
+        cout << "Hambre: " << hambre << "/10" << endl;
+        cout << "Felicidad: " << felicidad << "/10" << endl;
     }
 };
 
 int main() {
     string nombreMascota;
     cout << "Ingresa el nombre de tu mascota: ";
-    getline(cin, nombreMascota); // Permite que el usuario ingrese el nombre de la mascota
+    getline(cin, nombreMascota); 
+    cout << "______________________$$$$$$$$" << endl;
+    cout << "_______________$$$$$$$________$$$$$$$$$" << endl;
+    cout << "_____________$$________________________$$$$" << endl;
+    cout << "____________$$_____________________________$$" << endl;
+    cout << "___________$__________________________________$$" << endl;
+    cout << "___________$$___________________________________$$" << endl;
+    cout << "__________$$__$$______________________$$__________$$" << endl;
+    cout << "________$$__$$___$$$$_________$$$$____$$__________$$$$" << endl;
+    cout << "______$$___$$__$$$$__$$_____$$$$__$$_$$_____________$$$" << endl;
+    cout << "______$$___$$____$$$$_________$$$$___$$_______________$$" << endl;
+    cout << "______$$___$$________________________$$_______________$$" << endl;
+    cout << "______$$____$$_______________________$$_____________$$" << endl;
+    cout << "________$$__$$____$$$$$$_____________$$___________$$$" << endl;
+    cout << "________$$__$$__$$______$$___________$$_________$$" << endl;
+    cout << "________$$__$$__$$______$$___________$$_______$$" << endl;
+    cout << "__________$$$$____$$$$$$_____________$$$$____$$$$" << endl;
+    cout << "__________$$$$_____________________$$__$$____$$$" << endl;
+    cout << "___________$$_$$$$$$$$$$$$_____$$$$______$$$$_$$" << endl;
+    cout << "_____________$$___$$______$$$$$_______________$$" << endl;
+    cout << "_____________$$_____$$$$$$$____________________$$" << endl;
+    cout << "_____________$$________________________________$$" << endl;
+    cout << "____________$$_________________________________$$" << endl;
 
     Mascota miMascota(nombreMascota);
 
