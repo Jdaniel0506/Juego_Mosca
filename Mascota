@@ -1,0 +1,90 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Mascota {
+private:
+    string nombre;
+    int energia;
+    int hambre;
+    int felicidad;
+
+public:
+    Mascota(string _nombre) {
+        nombre = _nombre;
+        energia = 100;  
+        hambre = 50;    
+        felicidad = 80; 
+    }
+
+    void comer() {
+        cout << nombre << " está comiendo..." << endl;
+        hambre -= 20;
+        energia += 10;
+        if (hambre < 0) hambre = 0;
+        if (energia > 100) energia = 100;
+    }
+
+    void jugar() {
+        cout << nombre << " está jugando..." << endl;
+        felicidad += 15;
+        energia -= 10;
+        if (felicidad > 100) felicidad = 100;
+        if (energia < 0) energia = 0;
+    }
+
+    void dormir() {
+        cout << nombre << " está durmiendo..." << endl;
+        energia += 30;
+        if (energia > 100) energia = 100;
+    }
+
+    void mostrar_estado() const {
+        cout << "--- Estado de " << nombre << " ---" << endl;
+        cout << "Energia: " << energia << "/100" << endl;
+        cout << "Hambre: " << hambre << "/100" << endl;
+        cout << "Felicidad: " << felicidad << "/100" << endl;
+    }
+};
+
+int main() {
+    string nombreMascota;
+    cout << "Ingresa el nombre de tu mascota: ";
+    getline(cin, nombreMascota); // Permite que el usuario ingrese el nombre de la mascota
+
+    Mascota miMascota(nombreMascota);
+
+    int opcion;
+    do {
+        cout << "Que quieres hacer con " << nombreMascota << "?" << endl;
+        cout << "1. Comer" << endl;
+        cout << "2. Jugar" << endl;
+        cout << "3. Dormir" << endl;
+        cout << "4. Mostrar Estado" << endl;
+        cout << "5. Salir" << endl;
+        cout << "Selecciona una opcion: ";
+        cin >> opcion;
+
+        switch (opcion) {
+        case 1:
+            miMascota.comer();
+            break;
+        case 2:
+            miMascota.jugar();
+            break;
+        case 3:
+            miMascota.dormir();
+            break;
+        case 4:
+            miMascota.mostrar_estado();
+            break;
+        case 5:
+            cout << "¡Hasta luego!" << endl;
+            break;
+        default:
+            cout << "Opción no válida. Intenta de nuevo." << endl;
+        }
+    } while (opcion != 5);
+
+    return 0;
+}
