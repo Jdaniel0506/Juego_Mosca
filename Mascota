@@ -2,14 +2,15 @@
 #include <string>
 using namespace std;
 
-class Mascota {
+class Mascota { // Declare la clase "Mascota".
 private:
-    string nombre;
+    string nombre; // Agregamos atributos unicos de la clase:
     int energia;
     int hambre;
     int felicidad;
 
 public:
+    // Es un constructor para inicializar los valores de la mascota.
     Mascota(string _nombre) {
         nombre = _nombre;
         energia = 10;
@@ -17,7 +18,7 @@ public:
         felicidad = 9;
     }
 
-    void comer() {
+    void comer() {     // Método que simula que la mascota come.
         cout << nombre << " Esta comiendo..." << endl;
         hambre += 2;
         energia += 1;
@@ -25,7 +26,7 @@ public:
         if (energia > 10) energia = 10;
     }
 
-    void jugar() {
+    void jugar() {    // Método que simula que la mascota juega.
         cout << nombre << " Esta jugando..." << endl;
         felicidad += 2;
         energia -= 1;
@@ -35,7 +36,7 @@ public:
         if (hambre < 0) hambre = 0;
     }
 
-    void dormir() {
+    void dormir() {    // Método que simula que la mascota juega.
         cout << nombre << " Esta durmiendo..." << endl;
         energia += 3;
         hambre -= 1;
@@ -43,7 +44,7 @@ public:
         if (hambre < 0) hambre = 0;
     }
 
-    void mostrar_estado() const {
+    void mostrar_estado() const {  // Método para mostrar el estado actual de la mascota.
         cout << "--- Estado de " << nombre << " ---" << endl;
         cout << "Energia: " << energia << "/10" << endl;
         if (energia < 4)
@@ -57,7 +58,7 @@ public:
 };
 
 int main() {
-    string nombreMascota;
+    string nombreMascota; // Variable para almacenar el nombre de la mascota.
     cout << "Ingresa el nombre de tu mascota: ";
     getline(cin, nombreMascota);
     cout << "______________________$$$$$$$$" << endl;
@@ -84,9 +85,9 @@ int main() {
 
     Mascota miMascota(nombreMascota);
 
-    int opcion;
+    int opcion; //Variable para almacenar la opción seleccionada por el usuario.
     do {
-        cout << "Que quieres hacer con " << nombreMascota << "?" << endl;
+        cout << "Que quieres hacer con " << nombreMascota << "?" << endl; // Menú interactivo.
         cout << "1. Comer" << endl;
         cout << "2. Jugar" << endl;
         cout << "3. Dormir" << endl;
@@ -94,9 +95,10 @@ int main() {
         cout << "5. Limpiar Ventana" << endl;
         cout << "6. Salir" << endl;
         cout << "Selecciona una opcion: ";
-        cin >> opcion;
+        cin >> opcion; // Captura la opción seleccionada.
 
-        switch (opcion) {
+        switch (opcion) {// Realiza acciones dependiendo de la opción seleccionada.
+            // Aqui llama al metodo que desea.
         case 1:
             miMascota.comer();
             break;
